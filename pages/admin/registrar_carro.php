@@ -39,9 +39,8 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="saida_carro.php">SAIDA DE CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
                 </ul>
             </nav>
@@ -57,9 +56,8 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
                 </ul>
             </nav>
@@ -69,19 +67,25 @@ include_once('../../php/conexao.php');
         <div class="container" style="margin: 0 auto;">
             <div class="row">
                 <div class="col s12 m8 offset-m2 l8 offset-l2 xl6 offset-xl3 z-depth-5 form-box">
-                    <form class="col m12 s12 xl12 l12" action="" method="POST">
+                    <form class="col m12 s12 xl12 l12" action="../../php/controller/controller_carro.php" method="POST">
                         <br>
                         <h5 style="color: #70D44B;" class="center-align flow-text">Cadastrar Carro</h5><br>
+                        <?php 
+                            if(isset($_SESSION['msg'])){
+                            echo $_SESSION['msg'];
+                            unset($_SESSION['msg']);
+                            }
+                        ?>
                         <div class="row">
                             <div class="input-field col xl6 l6 m8 s12 offset-m2 offset-l3 offset-xl3">
                                 <label for="placa" style="color: #70D44B;">Placa do Carro</label>
-                                <input type="text" maxlength="7" id="placa" class="validate" autofocus required>
+                                <input name="placa" type="text" maxlength="7" id="placa" class="validate" autofocus required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col xl6 l6 m8 s12 offset-m2 offset-l3 offset-xl3">
                                 <p style="color: #70D44B">Horario de entrada:</p>
-                                <input id="entrada" type="datetime-local">
+                                <input name="entrada" id="entrada" type="datetime-local">
 
                             </div>
                         </div>

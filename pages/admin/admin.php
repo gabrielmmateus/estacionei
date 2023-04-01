@@ -39,9 +39,8 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="saida_carro.php">SAIDA DE CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li> 
 
                 </ul>
@@ -58,9 +57,9 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="saida_carro.php">SAIDA DE CARRO</a></li>
+            
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
                 </ul>
             </nav>
@@ -109,12 +108,8 @@ include_once('../../php/conexao.php');
                     </div>
                 </div>
             <?php
-            } ?>
-        </div>
-        <div class="container">
-            <div class="row ">
-                <div class="col s12 m12 l12 xl12">
-                    <?
+            } 
+                    
                     $result_pg = "SELECT COUNT(pk_carros) AS num_result FROM carros";
                     $resultado_pg = mysqli_query($con, $result_pg);
                     $row_pg = mysqli_fetch_assoc($resultado_pg);
@@ -123,7 +118,7 @@ include_once('../../php/conexao.php');
 
                     //Limitar os links antes e depois
                     $max_links = 10;
-                    echo "<a  href='admin.php?pagina=1'>Primeira</a>";
+                    echo "<a class='verdinho-text'  href='admin.php?pagina=1'>Primeira</a>";
 
                     for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
                         if ($pag_ant >= 1) {
@@ -138,9 +133,9 @@ include_once('../../php/conexao.php');
                         }
                     }
                     ?>
-                </div>
-            </div>
         </div>
+
+
     </main>
     <footer class="">
         <img src="../../img/logo2.png" alt="">
@@ -149,11 +144,6 @@ include_once('../../php/conexao.php');
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
     <script src="../../js/form-login.js"></script>
 
-    <script>
-        function redireciona() {
-            window.location.href = "login.php"
-        }
-    </script>
 </body>
 
 </html>

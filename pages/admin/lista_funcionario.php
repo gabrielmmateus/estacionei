@@ -38,9 +38,9 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
+
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
                 </ul>
             </nav>
@@ -56,7 +56,7 @@ include_once('../../php/conexao.php');
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">HOME</a></li>
+                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -70,7 +70,23 @@ include_once('../../php/conexao.php');
                 <h3>Funcionarios Cadastrados</h3>
             </div>
         </div>
-
+        <div class='row'>
+            <div class="col s12 m6 l6 offset-l3">
+                <?php
+                if (isset($_SESSION['msg'])) {
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l6 offset-l3">
+                <a class='white-text col s12 m6 l6 offset-l3' href="registrar_funcionario.php">
+                    <button type='button' id='btn' class='btn waves-effect waves-light btn'>Cadastrar Funcionario</button>
+                </a>
+            </div>
+        </div>
         <div class="row">
             <?php
             $query_consulta = "SELECT pk_usuarios, usuario, email, cargo FROM usuarios";
@@ -90,12 +106,20 @@ include_once('../../php/conexao.php');
                             </span>
                         </div>
                         <div class="card-action">
-                            <button onclick="redireciona('edit')" type="button" id="btn" class="btn waves-effect waves-light btn">
-                                Editar
-                            </button>
-                            <button onclick="redireciona('delete')" type="button" id="btn" class="btn waves-effect waves-light btn">
-                                Excluir
-                            </button>
+                            <?php
+                            echo "
+                            <a class='white-text' href='edit_funcionario.php?id=" . $infofuncionario['pk_usuarios'] . "'>
+                            <button type='button' id='btn' class='btn waves-effect waves-light btn'>Editar</button>
+                            </a>
+                             "
+                            ?>
+                            <?php
+                            echo "
+                            <a class='white-text' href='../../php/controller/controller_apagar_funcionario.php?id=" . $infofuncionario['pk_usuarios'] . "'>
+                            <button type='button' id='btn' class='btn waves-effect waves-light btn'>Deletar</button>
+                            </a>
+                             "
+                            ?>
                         </div>
                     </div>
                 </div>

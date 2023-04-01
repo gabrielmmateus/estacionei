@@ -27,8 +27,8 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // checa se o email é válido
 
         if (mysqli_insert_id($con)) {
             // TODO: alterar o redirect e a mensagem se necessário
-            $_SESSION['msg'] = "<p class='col s6' style='font-weight:400; olor:blue; width:fit-content; margin:0.5rem auto;'>Usuário cadastrado com sucesso.</p>";
-            header("Location: ../../pages/admin/admin.php");
+            $_SESSION['msg'] = "<p class='col s6 l6 offset-l3 verdinho-text' style='font-weight:400;  width:fit-content; margin:0.5rem auto;'>Usuário cadastrado com sucesso.</p>";
+            header("Location: ../../pages/admin/lista_funcionario.php");
         } else {
             $_SESSION['msg'] = "<p class='col s6' style='font-weight:400; color:red; width:fit-content; margin:0.5rem auto;'>Usuário não foi cadastrado.</p>";
             header("Location: controller_funcionario.php");
