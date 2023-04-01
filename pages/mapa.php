@@ -48,7 +48,7 @@
             </ul>
         </nav>
       </div>
-      <button id="login" class="btn waves-effect waves-light btn">LOGIN</button>
+ 
       <input id="menu-hamburguer" type="checkbox">
       <label  for="menu-hamburguer">
         <img id="icon-menu" src="../img/menu.png" alt="">
