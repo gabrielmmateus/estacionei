@@ -42,7 +42,8 @@ include_once('../../php/conexao.php');
                     <li><a class="nav-item" href="admin.php">HOME</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
-                    <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
+                    <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li> 
+                    
                 </ul>
             </nav>
         </div>
