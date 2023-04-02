@@ -1,6 +1,25 @@
 <?php
 session_start();
 include_once('../../php/conexao.php');
+date_default_timezone_set('America/Sao_Paulo');
+$date = getdate();
+
+$month = $date['mon'];
+
+
+$soma = 0;
+$query = "SELECT * FROM carros
+            INNER JOIN precos ON fk_preco = pk_preco
+            INNER JOIN vagas ON fk_vagas = pk_vagas
+        WHERE entrada LIKE '%$month%' AND
+        saida LIKE '%$month%' AND
+        saida IS NOT NULL
+    
+";
+
+$query = mysqli_query($con, $query);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +34,9 @@ include_once('../../php/conexao.php');
     <link type="text/css" rel="stylesheet" href="../../css/materialize.css" media="screen,projection" />
     <!-- Link CSS -->
     <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/menu-hamburguer.css">
-    <link rel="stylesheet" href="../../css/relatorio/style.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <!-- <link rel="stylesheet" href="../../css/relatorio/style.css"> -->
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -65,13 +84,32 @@ include_once('../../php/conexao.php');
     </header>
 
     <main class="container">
+
         <div class="row">
-            <div class="col s12 m6 l6 offset-l3">
-                <a href="../../php/gerar_pdf.php" class="col s12 m6 l6 offset-l3">
-                    <button type="button"  class="btn-large waves-effect waves-light btn" id="btn">Gerar Relatorio</button>
-                </a>
-            </div>
+            <h2 class="col s12 m6 l6 offset-l3 black-text">Relatorio Mensal</h2>
+
+            <?php
+            while($infocarro = mysqli_fetch_assoc($query)) {
+            ?>
+                <div class="col s12 m6 l6">
+                    <div class="card-panel cinza">
+                        <span>
+                            <?php
+                            echo "<p class='verdinho-text'>Placa:  <b class='cinza-text'>" .  $infocarro['placa'] . "</b></p><br>";
+                            echo "<p class='verdinho-text'>Entrada:  <b class='cinza-text'>" . $infocarro['entrada'] . "</b></p><br>";
+                            echo "<p class='verdinho-text'>Saida:  <b class='cinza-text'>" . $infocarro['saida'] . "</b></p><br>";
+                            echo "<p class='verdinho-text'>Vaga:  <b class='cinza-text'>" . $infocarro['numero_vaga'] . "</b></p><br>";
+                            echo "<p class='verdinho-text'>Preço:  <b class='cinza-text'>" . $infocarro['preco'] . "</b></p><br>";
+                            $soma = $soma + floatval($infocarro['preco']) ;
+                            ?>
+                        </span>
+                    </div>
+                </div>
+            <?php
+            }        
+            ?>
         </div>
+        <h4 class="black-text">Total R$<?php echo $soma;?></h3>
     </main>
 
     <footer class="">
