@@ -7,7 +7,6 @@
     // $senha = base64_encode($senha);
 
     $query = "SELECT * FROM usuarios WHERE email='$email' AND senha='".base64_encode($senha)."'";
-
     $query_consulta = mysqli_query($con, $query);
     $consulta = mysqli_fetch_assoc($query_consulta);
 

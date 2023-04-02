@@ -66,9 +66,9 @@ include_once('../../php/conexao.php');
 
     <main class="container">
         <div class="row">
-            <div class="col">
-                <a href="">
-                    <button>Gerar Relatorio</button>
+            <div class="col s12 m6 l6 offset-l3">
+                <a href="../../php/gerar_pdf.php" class="col s12 m6 l6 offset-l3">
+                    <button type="button"  class="btn-large waves-effect waves-light btn" id="btn">Gerar Relatorio</button>
                 </a>
             </div>
         </div>

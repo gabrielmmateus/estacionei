@@ -18,8 +18,8 @@ include_once('../../php/conexao.php');
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/menu-hamburguer.css">
+
     <link rel="stylesheet" href="../../css/admin/admin.css">
-    <link rel="stylesheet" href="../../css/admin/style.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -41,7 +41,7 @@ include_once('../../php/conexao.php');
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-                    <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li> 
+                    <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
 
                 </ul>
             </nav>
@@ -59,7 +59,7 @@ include_once('../../php/conexao.php');
                     <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
-            
+
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
                 </ul>
             </nav>
@@ -90,7 +90,7 @@ include_once('../../php/conexao.php');
             //Calcular o inicio da visualização
             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-            $query_consulta = "SELECT placa,entrada,numero_vaga FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado LIKE 1 LIMIT $inicio, $qnt_result_pg";
+            $query_consulta = "SELECT * FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado LIKE 1 LIMIT $inicio, $qnt_result_pg";
             $consulta = mysqli_query($con, $query_consulta);
             while ($infocarro = mysqli_fetch_assoc($consulta)) { ?>
                 <div class="col s12 m6 l3 xl3 ">
@@ -102,37 +102,41 @@ include_once('../../php/conexao.php');
                             echo "Vaga: " . $infocarro['numero_vaga'] . "<br>";
                             ?>
                         </span>
-                        <button onclick="redireciona()" type="button" id="btn-registra" class="btn waves-effect waves-light btn">
-                            Saida
-                        </button>
+                        <?php
+                            echo "
+                            <a class='white-text' href='../../php/controller/controller_retira_carro.php?id=" . $infocarro['pk_carros'] . "'>
+                            <button type='button' id='saida' class='btn waves-effect waves-light btn'>Saida</button>
+                            </a>
+                             "
+                            ?>
                     </div>
                 </div>
             <?php
-            } 
-                    
-                    $result_pg = "SELECT COUNT(pk_carros) AS num_result FROM carros";
-                    $resultado_pg = mysqli_query($con, $result_pg);
-                    $row_pg = mysqli_fetch_assoc($resultado_pg);
-                    //Quantidade de pagina
-                    $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
+            }
 
-                    //Limitar os links antes e depois
-                    $max_links = 10;
-                    echo "<a class='verdinho-text'  href='admin.php?pagina=1'>Primeira</a>";
+            $result_pg = "SELECT COUNT(pk_carros) AS num_result FROM carros";
+            $resultado_pg = mysqli_query($con, $result_pg);
+            $row_pg = mysqli_fetch_assoc($resultado_pg);
+            //Quantidade de pagina
+            $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
 
-                    for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
-                        if ($pag_ant >= 1) {
-                            echo "<a href='admin.php?pagina=$pag_ant'> $pag_ant </a>";
-                        }
-                    }
+            //Limitar os links antes e depois
+            $max_links = 10;
+            echo "<a class='verdinho-text'  href='admin.php?pagina=1'>Primeira</a>";
 
-                    echo " $pagina ";
-                    for ($pag_dep = $pagina + 1; $pag_dep <= $pagina = $max_links; $pag_dep++) {
-                        if ($pag_dep <= $quantidade_pg) {
-                            echo "<a href='admin.php?pagina=$pag_dep'> $pag_dep </a>";
-                        }
-                    }
-                    ?>
+            for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
+                if ($pag_ant >= 1) {
+                    echo "<a href='admin.php?pagina=$pag_ant'> $pag_ant </a>";
+                }
+            }
+
+            echo " $pagina ";
+            for ($pag_dep = $pagina + 1; $pag_dep <= $pagina = $max_links; $pag_dep++) {
+                if ($pag_dep <= $quantidade_pg) {
+                    echo "<a href='admin.php?pagina=$pag_dep'> $pag_dep </a>";
+                }
+            }
+            ?>
         </div>
 
 

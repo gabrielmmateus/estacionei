@@ -6,12 +6,12 @@
     
 }
 
-#btn-registra{
+#btn{
     margin-top: 2em;
     background-color: #24272A;
     border: 1px solid #70D44B;
 }
-#btn-registra:hover{
+#btn:hover{
     background-color: #70D44B;
     color: black;
 }
