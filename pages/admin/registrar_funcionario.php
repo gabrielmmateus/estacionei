@@ -29,6 +29,11 @@ session_start();
 </head>
 
 <body>
+    <?php 
+    if ($_SESSION['security'] == false){
+        header("Location: login.php");
+    }
+    ?>
     <header>
         <img src="../../img/logo.png" alt="" />
         <div>
@@ -43,7 +48,7 @@ session_start();
                 </ul>
             </nav>
         </div>
-        <button id="login" class="btn waves-effect waves-light btn">LOGOFF</button>
+        <a id="login" class="btn waves-effect waves-light btn" type="button" href="../../php/controller/controller_logoff.php">LOGOFF</a>
 
         <input id="menu-hamburguer" type="checkbox">
         <label for="menu-hamburguer">

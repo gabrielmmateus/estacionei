@@ -32,7 +32,17 @@ if(!empty($id)) {
     $from_time = strtotime($row_consulta['entrada']);
     $to_time = strtotime($row_consulta['saida']);
     $tempo_no_estacionamento = round(abs($from_time - $to_time) / 60, 2); // tempo em minutos
-
+    
+    ////////// para fins de exibição e debugação separei as horas, os minutos e os segundos
+    
+    $horas = floor($tempo_no_estacionamento / 60);
+    $minutos = floor($tempo_no_estacionamento - $horas*60);
+    $segundos = $tempo_no_estacionamento - (int)($tempo_no_estacionamento);
+    $segundos = floor($segundos * 60);
+    
+    echo "$horas horas<br>";
+    echo "$minutos minutos<br>";
+    echo "$segundos segundos<br>";
     
     
     $multa_hora_adicional = 9.00;
@@ -47,16 +57,6 @@ if(!empty($id)) {
         $total_pagar = 32.00 + ($multa_hora_adicional * ceil(($tempo_no_estacionamento - 120) / 60));
     
     echo "<br>Total a pagar = R$" . $total_pagar;
-
-
-    $query = "UPDATE precos,carros SET preco = '$total_pagar' WHERE pk_preco = fk_preco AND pk_carros='$id'";
-    $query = mysqli_query($con, $query);
-
-
-    $tempo_no_estacionamento = 0;
-
-
-    header('Location: ../../pages/admin/admin.php');
 }
 
 

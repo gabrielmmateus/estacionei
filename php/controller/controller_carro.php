@@ -18,18 +18,22 @@ if (preg_match_all($pattern,$placa)){
     $query = "INSERT INTO precos VALUES (DEFAULT, NULL)";
     $result = mysqli_query($con, $query);
 
-    $query = "SELECT pk_preco FROM precos ORDER BY pk_preco DESC ";
+
+    $query = "INSERT INTO carros  VALUES (DEFAULT, '$placa', '$date', DEFAULT, '$vaga', DEFAULT)";
+    $query_insere = mysqli_query($con,$query);
+
+    $queryatt = "UPDATE vagas SET ocupado = '1' WHERE pk_vagas = '$vaga'";
+    $query_att = mysqli_query($con,$queryatt);
+
+    $query = "SELECT * FROM precos";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     echo var_dump($row);
     $preco_id = $row['pk_preco'];
 
-    $query = "INSERT INTO carros  VALUES (DEFAULT, '$placa', '$date', DEFAULT, '$vaga', '$preco_id')";
-    $query_insere = mysqli_query($con,$query);
-
-    $queryatt = "UPDATE vagas SET ocupado = '1' WHERE pk_vagas = '$vaga'";
+    $queryatt = "UPDATE carros SET fk_preco = '$preco_id' WHERE pk_preco = '$preco_id'";
     $query_att = mysqli_query($con,$queryatt);
-    
+
 
     $_SESSION['msg'] = "<p style='color:green;'>Vaga Preenchida com Sucesso</p><br>";
         header("Location: ../../pages/admin/registrar_carro.php"); 

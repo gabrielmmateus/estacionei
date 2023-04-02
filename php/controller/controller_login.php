@@ -13,6 +13,7 @@
     if (!empty($consulta)){
         // if ($email == $consulta['email'] && base64_encode($senha) == $consulta['senha']){
         $_SESSION['msg'] = "<p style='color:#70D44B;'><b>Conectado como: '". $consulta['usuario'] ."'</b></p>";
+        $_SESSION['security'] = true;
         header("Location: ../../pages/admin/admin.php");
         // }
     } else {

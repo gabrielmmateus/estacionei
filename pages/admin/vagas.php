@@ -31,6 +31,11 @@ include_once('../../php/conexao.php');
 
 <body style="font-family: 'Roboto', sans-serif; color: white;">
     <header>
+    <?php 
+    if ($_SESSION['security'] == false){
+        header("Location: login.php");
+    }
+    ?>
         <img src="../../img/logo.png" alt="" />
         <div>
             <nav class="nav-content">
@@ -44,7 +49,7 @@ include_once('../../php/conexao.php');
                 </ul>
             </nav>
         </div>
-        <button id="login" class="btn waves-effect waves-light btn">LOGOFF</button>
+        <a id="login" class="btn waves-effect waves-light btn" type="button" href="../../php/controller/controller_logoff.php">LOGOFF</a>
 
         <input id="menu-hamburguer" type="checkbox">
         <label for="menu-hamburguer">

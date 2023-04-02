@@ -32,6 +32,11 @@ include_once('../../php/conexao.php');
 </head>
 
 <body style="font-family: 'Roboto', sans-serif; color: white;">
+    <?php 
+    if ($_SESSION['security'] == false){
+        header("Location: login.php");
+    }
+    ?>
     <header>
         <img src="../../img/logo.png" alt="" />
         <div>
@@ -46,7 +51,7 @@ include_once('../../php/conexao.php');
                 </ul>
             </nav>
         </div>
-        <button id="login" class="btn waves-effect waves-light btn">LOGOFF</button>
+        <a id="login" class="btn waves-effect waves-light btn" type="button" href="../../php/controller/controller_logoff.php">LOGOFF</a>
 
         <input id="menu-hamburguer" type="checkbox">
         <label for="menu-hamburguer">
@@ -90,7 +95,7 @@ include_once('../../php/conexao.php');
             //Calcular o inicio da visualização
             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-            $query_consulta = "SELECT * FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado = 1 AND saida IS NULL LIMIT $inicio, $qnt_result_pg";
+            $query_consulta = "SELECT * FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado LIKE 1 LIMIT $inicio, $qnt_result_pg";
             $consulta = mysqli_query($con, $query_consulta);
             while ($infocarro = mysqli_fetch_assoc($consulta)) { ?>
                 <div class="col s12 m6 l3 xl3 ">
