@@ -43,7 +43,7 @@
                 <li><a class="nav-item" href="novidades.html">NOVIDADES</a></li>
                 <li><a class="nav-item" href="../index.php#sobre-nos">SOBRE NÓS</a></li>
                 <li><a class="nav-item" href="../index.php">HOME</a></li>
-                <li><a class="nav-item nav-item-current" href="">MAPA DE LOCALIZAÇÃO</a></li>
+                <li><a class="nav-item nav-item-current" href="mapa.php">MAPA DE LOCALIZAÇÃO</a></li>
                 <li><a class="nav-item" href="contato.php">CONTATO</a></li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@
               <li><a class="nav-item" href="novidades.html">NOVIDADES</a></li>
               <li><a class="nav-item" href="../index.php#sobre-nos">SOBRE NÓS</a></li>
               <li><a class="nav-item" href="../index.php">HOME</a></li>
-              <li><a class="nav-item nav-item-current" href="">MAPA DE LOCALIZAÇÃO</a></li>
+              <li><a class="nav-item nav-item-current" href="mapa.php">MAPA DE LOCALIZAÇÃO</a></li>
               <li><a class="nav-item" href="contato.php">CONTATO</a></li>
           </ul>
       </nav>

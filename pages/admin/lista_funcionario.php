@@ -41,11 +41,11 @@ include_once('../../php/conexao.php');
     <header>
         <img src="../../img/logo.png" alt="" />
         <div>
-            <nav class="nav-content">
+            <nav class="nav-content black">
                 <ul class="black">
-                    <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
+                    <li><a class="nav-item" href="vagas.php">VAGAS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="admin.php">CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -59,11 +59,11 @@ include_once('../../php/conexao.php');
             <img id="icon-menu" src="../../img/menu.png" alt="">
         </label>
         <label class="menu-hamburguer">
-            <nav class="nav-content2">
+            <nav class="nav-content2 black">
                 <ul class="black">
-                    <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
-                    <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
+                    <li><a class="nav-item" href="vagas.php">VAGAS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="admin.php">CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>

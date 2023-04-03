@@ -61,8 +61,8 @@
             <li><a class="nav-item" href="pages/novidades.html">NOVIDADES</a></li>
             <li><a class="nav-item" href="#sobre-nos">SOBRE NÓS</a></li>
             <li><a class="nav-item nav-item-current" href="">HOME</a></li>
-            <li><a class="nav-item" href="/pages/mapa.php">MAPA DE LOCALIZAÇÃO</a></li>
-            <li><a class="nav-item" href="">CONTATO</a></li>
+            <li><a class="nav-item" href="pages/mapa.php">MAPA DE LOCALIZAÇÃO</a></li>
+            <li><a class="nav-item" href="pages/contato.php">CONTATO</a></li>
           </ul>
         </nav>
       </label>

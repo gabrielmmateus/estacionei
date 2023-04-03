@@ -32,7 +32,7 @@
     <header>
         <img src="../../img/logo.png" alt=""/>
         <div>
-          <nav class="nav-content">
+          <nav class="nav-content black">
               <ul class="black">
                   <li><a class="nav-item" href="../novidades.html">NOVIDADES</a></li>
                   <li><a class="nav-item" href="../../index.php#sobre-nos">SOBRE NÓS</a></li>
@@ -49,7 +49,7 @@
           <img id="icon-menu" src="../../img/menu.png" alt="">
         </label>
         <label class="menu-hamburguer">
-          <nav class="nav-content2">
+          <nav class="nav-content2 black">
             <ul class="black">
                 <li><a class="nav-item" href="">NOVIDADES</a></li>
                 <li><a class="nav-item" href="">SOBRE NÓS</a></li>
