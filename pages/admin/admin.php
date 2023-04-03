@@ -43,7 +43,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -60,7 +60,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
@@ -80,7 +80,7 @@ include_once('../../php/conexao.php');
             ?>
         </div>
         <div class="row">
-            <h2 class="col l6 offset-l3 black-text">Carros estacionados</h2>
+            <h2 class="align-self center black-text">Carros Estacionados</h2>
         </div>
         <div class="row">
             <?php
@@ -117,7 +117,16 @@ include_once('../../php/conexao.php');
                 </div>
             <?php
             }
+            ?>
 
+
+        </div>
+
+    </main>
+    <!-- Paginação Alinhada com Footer -->
+    <div class="align-self center" style="background-color: #24272A;">
+        <br>
+        <?php
             $result_pg = "SELECT COUNT(pk_carros) AS num_result FROM carros";
             $resultado_pg = mysqli_query($con, $result_pg);
             $row_pg = mysqli_fetch_assoc($resultado_pg);
@@ -126,8 +135,11 @@ include_once('../../php/conexao.php');
 
             //Limitar os links antes e depois
             $max_links = 10;
-            echo "<a class='verdinho-text'  href='admin.php?pagina=1'>Primeira</a>";
 
+            //Primeira
+            echo "<a class='verdinho-text'  href='admin.php?pagina=1'>Primeira  </a>";
+
+            //Paginas
             for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
                 if ($pag_ant >= 1) {
                     echo "<a href='admin.php?pagina=$pag_ant'> $pag_ant </a>";
@@ -139,13 +151,13 @@ include_once('../../php/conexao.php');
                 if ($pag_dep <= $quantidade_pg) {
                     echo "<a href='admin.php?pagina=$pag_dep'> $pag_dep </a>";
                 }
-            }
+            } 
+            //Ultima
+            echo "<a class='verdinho-text' href='admin.php?pagina=$quantidade_pg'>  Ultima</a>";
+
             ?>
-        </div>
-
-
-    </main>
-    <footer class="">
+    </div>
+    <footer class="" style="margin: 0 auto;">
         <img src="../../img/logo2.png" alt="">
     </footer>
 

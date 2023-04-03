@@ -41,7 +41,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
    
@@ -59,7 +59,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
              
@@ -72,7 +72,7 @@ include_once('../../php/conexao.php');
     <main class="container" style="min-width: 300px; margin-top: 4%; margin-bottom: 4%;">
         <div class="row">
             <div class="col l6 offset-l3 black-text">
-                <h2>Vagas disponiveis</h2>
+                <h2 class="align-self center black-text">Vagas Disponiveis</h2>
             </div>
         </div>
         <div class="row">
@@ -105,6 +105,14 @@ include_once('../../php/conexao.php');
                 </div>
             <?php
             }
+            ?>
+        </div>
+    </main>
+    <!-- Paginação Alinhada com Footer -->
+    <div class="align-self center" style="background-color: #24272A;">
+        <br>
+        <?php
+            //Paginação
             $result_pg = "SELECT COUNT(pk_vagas) AS num_result FROM vagas";
             $resultado_pg = mysqli_query($con, $result_pg);
             $row_pg = mysqli_fetch_assoc($resultado_pg);
@@ -113,8 +121,11 @@ include_once('../../php/conexao.php');
 
             //Limitar os links antes e depois
             $max_links = 10;
-            echo "<a href='vagas.php?pagina=1'>Primeira</a>";
 
+            //Primeira
+            echo "<a class='verdinho-text' href='vagas.php?pagina=1'>Primeira  </a>";
+
+            //Paginas
             for ($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++) {
                 if ($pag_ant >= 1) {
                     echo "<a href='vagas.php?pagina=$pag_ant'> $pag_ant </a>";
@@ -126,10 +137,12 @@ include_once('../../php/conexao.php');
                 if ($pag_dep <= $quantidade_pg) {
                     echo "<a href='vagas.php?pagina=$pag_dep'> $pag_dep </a>";
                 }
-            }
+            } 
+            //Ultima
+            echo "<a class='verdinho-text' href='vagas.php?pagina=$quantidade_pg'>  Ultima</a>";
+
             ?>
-        </div>
-    </main>
+    </div>
     <footer class="">
         <img src="../../img/logo2.png" alt="">
     </footer>

@@ -35,6 +35,8 @@ include_once('../../php/conexao.php');
     if ($_SESSION['security'] == false){
         header("Location: login.php");
     }
+    // else if ($_SESSION['funcionario'] == true)
+    //     header("Location: admin.php");
     ?>
     <header>
         <img src="../../img/logo.png" alt="" />
@@ -42,7 +44,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
@@ -60,7 +62,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>
@@ -71,8 +73,8 @@ include_once('../../php/conexao.php');
     </header>
     <main class="container" style="min-width: 300px; margin-top: 4%; margin-bottom: 4%;">
         <div class="row">
-            <div class="col l7 offset-l3 black-text">
-                <h3>Funcionarios Cadastrados</h3>
+            <div class="align-self center black-text">
+                <h2>Funcionarios Cadastrados</h2>
             </div>
         </div>
         <div class='row'>

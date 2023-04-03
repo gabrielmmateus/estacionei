@@ -60,7 +60,7 @@ $query = mysqli_query($con, $query);
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -78,7 +78,7 @@ $query = mysqli_query($con, $query);
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
@@ -91,7 +91,9 @@ $query = mysqli_query($con, $query);
     <main class="container">
 
         <div class="row">
-            <h2 class="col s12 m6 l6 offset-l3 black-text">Relatorio Mensal</h2>
+            <br>
+            <h2 class="align-self center black-text">Relatorio Mensal</h2>
+            <br>
 
             <?php
             while($infocarro = mysqli_fetch_assoc($query)) {
@@ -114,7 +116,7 @@ $query = mysqli_query($con, $query);
             }        
             ?>
         </div>
-        <h4 class="black-text">Total R$<?php echo $soma;?></h3>
+        <h4 class=" align-self center black-text">Total R$<?php echo $soma;?></h3>
     </main>
 
     <footer class="">

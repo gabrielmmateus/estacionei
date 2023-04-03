@@ -10,9 +10,9 @@ $vaga = filter_input(INPUT_POST,'vaga');
 $placa = filter_input(INPUT_POST,'placa',FILTER_SANITIZE_STRING);
 
 //Sessão de Validação de Placa e Finalização
-$pattern = '/^[A-Z]{3}[0-9]{1}[A-Z0-9]{1}[0-9]{2}$/';
+$pattern1 = '/^[A-Z]{3}[0-9]{1}[A-Z0-9]{1}[0-9]{2}$/';
 
-if (preg_match_all($pattern,$placa)){
+if (preg_match_all($pattern1,$placa)){
     $_SESSION['msg'] = "<p style='color:#70D44B;'>Placa Válida</p>";
 
     $query = "INSERT INTO precos VALUES (DEFAULT, NULL)";

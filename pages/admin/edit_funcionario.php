@@ -39,6 +39,10 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
     <?php 
     if ($_SESSION['security'] == false){
         header("Location: login.php");
+    }else if ($_SESSION['funcionario'] == true){
+        $_SESSION['msg'] = "<p class='align-self center' style='color:red;'><b>Você Não Tem Permissão Suficiente</b></p>";
+        header("Location: lista_funcionario.php");
+    
     }
     ?>
     <header>
@@ -47,7 +51,7 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -64,7 +68,7 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 

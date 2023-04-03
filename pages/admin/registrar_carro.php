@@ -43,7 +43,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -60,7 +60,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
@@ -115,7 +115,7 @@ include_once('../../php/conexao.php');
 
                         <div class="row">
                             <div class="col s6 m6 l6 xl6 offset-s3 offset-m3 offset-l3 offset-xl3">
-                                <button id="login" class="btn waves-effect waves-light btn-large" type="submit" name="action">
+                                <button id="btn" class="btn waves-effect waves-light btn-large" type="submit" name="action">
                                     Registrar Carro
                                 </button>
 
