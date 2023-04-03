@@ -31,18 +31,18 @@ include_once('../../php/conexao.php');
 </head>
 
 <body style="font-family: 'Roboto', sans-serif; color: white;">
+    <?php 
+    if ($_SESSION['security'] == false){
+        header("Location: login.php");
+    }
+    ?>
     <header>
-        <?php 
-        if ($_SESSION['security'] == false){
-            header("Location: login.php");
-        }
-        ?>
         <img src="../../img/logo.png" alt="" />
         <div>
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
@@ -60,7 +60,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="saida_Carro.php">SAIDA DE CARRO</a></li>

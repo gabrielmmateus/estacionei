@@ -43,11 +43,10 @@ include_once('../../php/conexao.php');
             <nav class="nav-content">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
                     <li><a class="nav-item" href="relatorio.php">RELATORIO</a></li>
-
                 </ul>
             </nav>
         </div>
@@ -61,7 +60,7 @@ include_once('../../php/conexao.php');
             <nav class="nav-content2">
                 <ul class="black">
                     <li><a class="nav-item" href="vagas.php">VISUALIZAR VAGAS</a></li>
-                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIZAR FUNCIONARIOS</a></li>
+                    <li><a class="nav-item" href="lista_funcionario.php">VISUALIAR FUNCIONARIOS</a></li>
                     <li><a class="nav-item" href="admin.php">VISUALIZAR CARROS</a></li>
                     <li><a class="nav-item" href="registrar_carro.php">CADASTRAR CARRO</a></li>
 
@@ -95,7 +94,7 @@ include_once('../../php/conexao.php');
             //Calcular o inicio da visualização
             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-            $query_consulta = "SELECT * FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado LIKE 1 LIMIT $inicio, $qnt_result_pg";
+            $query_consulta = "SELECT * FROM carros  INNER JOIN vagas ON fk_vagas = pk_vagas WHERE ocupado = 1 AND saida IS NULL LIMIT $inicio, $qnt_result_pg";
             $consulta = mysqli_query($con, $query_consulta);
             while ($infocarro = mysqli_fetch_assoc($consulta)) { ?>
                 <div class="col s12 m6 l3 xl3 ">

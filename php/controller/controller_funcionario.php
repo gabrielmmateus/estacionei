@@ -18,7 +18,6 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // checa se o email é válido
         if ($row_usuario['email'] == $email) {
             $isValid = false;
             break;
-            
         }
     }
 
