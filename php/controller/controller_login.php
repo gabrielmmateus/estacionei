@@ -25,6 +25,8 @@
 
         if($result_query_array['cargo'] == 'Funcionário'){
             $_SESSION['funcionario'] = true;
+        }else{
+            $_SESSION['funcionario'] = false;
         }
     } else {
         $_SESSION['msg'] = "<p style='color:red;'>Falha no login. Insira seus dados novamente </p>";

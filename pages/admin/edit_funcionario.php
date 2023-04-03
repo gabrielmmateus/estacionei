@@ -1,5 +1,12 @@
 <?php
 session_start();
+if ($_SESSION['security'] == false){
+    header("Location: login.php");
+}else if ($_SESSION['funcionario'] == true){
+    $_SESSION['msg'] = "<p class='align-self center' style='color:red;'><b>Você Não Tem Permissão Suficiente</b></p>";
+    header("Location: lista_funcionario.php");
+
+}
 include_once('../../php/conexao.php'); //link ao arquivo de conexão ao banco de dados
 $pk_usuario = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $query_consulta = "SELECT * FROM usuarios WHERE pk_usuarios = '$pk_usuario'";
@@ -36,15 +43,7 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
 </head>
 
 <body>
-    <?php 
-    if ($_SESSION['security'] == false){
-        header("Location: login.php");
-    }else if ($_SESSION['funcionario'] == true){
-        $_SESSION['msg'] = "<p class='align-self center' style='color:red;'><b>Você Não Tem Permissão Suficiente</b></p>";
-        header("Location: lista_funcionario.php");
-    
-    }
-    ?>
+
     <header>
         <img src="../../img/logo.png" alt="" />
         <div>
@@ -86,7 +85,7 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
                     <form class="col m12 s12 xl12 l12" action="../../php/controller/controller_editar_funcionario.php" method="POST">
                         <br>
                         <h5 style="color: #70D44B;" class="center-align flow-text">Editar Funcionário</h5>
-                        <i class="small material-icons">person_add</i>
+                        <i class="small material-icons">edit</i>
                         <br>
                         <?php
                         if (isset($_SESSION['msg'])) {
@@ -98,22 +97,22 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
                         <div class="row">
                             <div class="input-field col xl6 l6 m8 s12 offset-m2 offset-l3 offset-xl3">
                                 <label for="usu" style="color: #70D44B;">Usuário</label>
-                                <input value="<?php echo $infofuncionario['usuario']; ?>" name="usuario" id="usu" type="text" class="validate">
+                                <input value="<?php echo $infofuncionario['usuario']; ?>" name="usuario" id="usu" type="text" class="validate" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col xl6 l6 m8 s12 offset-m2 offset-l3 offset-xl3">
                                 <label for="usu" style="color: #70D44B;">Email</label>
-                                <input value="<?php echo $infofuncionario['email']; ?>" name="email" id="usu" type="email" class="validate">
+                                <input value="<?php echo $infofuncionario['email']; ?>" name="email" id="usu" type="email" class="validate" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col xl6 l6 m8 s12 offset-m2 offset-l3 offset-xl3">
                                 <label for="senha" style="color: #70D44B">Senha</label>
-                                <input placeholder="Insira sua nova Senha" name="senha" id="senha" minlength="8" type="password" class="validate">
-                                <button id="eye" type="button" onclick="mostraSenha()" class="material-icons black-text">remove_red_eye</button>
+                                <input placeholder="Insira sua nova Senha" name="senha" id="senha" minlength="8" type="password" class="validate" required>
+                                <button id="eye" type="button" onclick="mostraSenha()" class="material-icons white-text">remove_red_eye</button>
                             </div>
                         </div>
 
@@ -153,7 +152,7 @@ $infofuncionario = mysqli_fetch_assoc($consulta);
     </footer>
 
     <script type="text/javascript" src="../../js/materialize.min.js"></script>
-    <script src="../../js/form-login.js"></script>
+    <script src="../../js/login/login.js"></script>
 </body>
 
 </html>
